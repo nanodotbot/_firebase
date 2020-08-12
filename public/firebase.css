@@ -1,0 +1,143 @@
+:root {
+    font-family: 'Nunito', 'Calibri Light', Calibri, sans-serif;
+    font-size: 16px;
+
+    box-sizing: border-box;
+
+    --important-1-darker: #1e1e24;
+    --important-2-darker: #cd5c5c;
+
+    --important-1-slightly-lighter: #303437;
+
+    --important-1-lighter: #393E41;
+    --important-2-lighter: #FF8A82;
+
+    --contrast-1: #ADABAB;
+    --contrast-2: #5DBCD2;
+}
+
+body::-webkit-scrollbar {
+    width: 1.0rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--important-1-darker);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--important-2-darker);
+}
+
+::-moz-selection {
+    color: var(--contrast-2);
+    background: var(--contrast-1);
+}
+
+::selection {
+    color: var(--contrast-2);
+    background: var(--contrast-1);
+}
+
+* {
+    font-family: 'Nunito', 'Calibri Light', Calibri, sans-serif;
+    font-size: 1.2rem;
+
+    color: var(--important-2-lighter);
+    background-color: var(--important-1-lighter);
+
+    margin: 0;
+    padding: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+html,
+body {
+    display: grid;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: normal;
+
+    text-align: left;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+a {
+    font-style: normal;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--contrast-2);
+}
+
+input {
+    height: 2.5rem;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    font-size: 1.2rem;
+    text-align: center;
+
+    border: 1px solid var(--important-2-lighter);
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    background-color: var(--important-1-slightly-lighter);
+}
+
+input:hover {
+    border: 1px solid var(--contrast-2);
+}
+
+input:focus {
+    border: 1px solid var(--contrast-2);
+    outline: none;
+}
+
+section {
+    display: grid;
+    justify-content: center;
+}
+
+footer {
+    margin-top: 100px;
+}
+
+hr {
+    justify-self: center;
+    width: 50vw;
+
+    border: 0.5px solid var(--important-2-lighter);
+}
+
+p, a, code {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+code {
+    font-family: 'Mono Sans';
+
+    background-color: var(--important-1-darker);
+}

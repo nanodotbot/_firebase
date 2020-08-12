@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>firebase summary</title>
+    <link rel="stylesheet" href="./firebase.css">
+</head>
+
+<body>
+    <p>add some rabbits here:</p>
+    <div class="rabbits"></div>
+    <hr>
+    <p>create project</p>
+    <p>add firebase sdk snippet to code</p>
+    <p>create cloud firestore</p>
+    <p>change rules</p>
+    <a href="https://nodejs.org/en/">download and install node.js</a>
+    <code>npm install -g firebase-tools</code>
+    <code>firebase login:ci</code>
+    <code>firebase projects:list</code>
+    <code>firebase init</code>
+    <code>firebase deploy</code>
+    <code>firebase emulators:start</code>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
+    
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBlICJvsWS79g87INj7LUvSkaydUkp1AMQ",
+            authDomain: "fir-1f14d.firebaseapp.com",
+            databaseURL: "https://fir-1f14d.firebaseio.com",
+            projectId: "fir-1f14d",
+            storageBucket: "fir-1f14d.appspot.com",
+            messagingSenderId: "809134647151",
+            appId: "1:809134647151:web:c3df5ef732785ce2732a9a",
+            measurementId: "G-CM0X4LS8M9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <script src="./firebase.js"></script>
+</body>
+
+</html>
