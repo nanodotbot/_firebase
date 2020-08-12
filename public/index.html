@@ -5,12 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>firebase summary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./firebase.css">
 </head>
 
 <body>
     <p>add some rabbits here:</p>
-    <div class="rabbits"></div>
+    <form id="add-rabbits">
+        <label for="name">name</label>
+        <label for="species">species</label>
+        <label for="abilities">abilities</label>
+        <input type="text" name="name" id="name">
+        <input type="text" name="species" id="species">
+        <input type="text" name="abilities" id="abilities">
+        <button>add rabbit</button>
+    </form>
+    <hr>
+    <div id="rabbits">
+        <div id="rabbits-header">
+            <p>name</p>
+            <p>species</p>
+            <p>abilities</p>
+        </div>
+    </div>
+    <hr>
+    <code>(·.·)</code>
+    <code>(>_<)</code>
+    <code>(·_·)</code>
     <hr>
     <p>create project</p>
     <p>add firebase sdk snippet to code</p>

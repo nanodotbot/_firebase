@@ -1,5 +1,5 @@
 :root {
-    font-family: 'Nunito', 'Calibri Light', Calibri, sans-serif;
+    font-family: 'Work Sans', 'Open Sans', 'Nunito', 'Calibri Light', Calibri, sans-serif;
     font-size: 16px;
 
     box-sizing: border-box;
@@ -39,7 +39,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 * {
-    font-family: 'Nunito', 'Calibri Light', Calibri, sans-serif;
+    font-family: 'Work Sans', 'Open Sans', 'Nunito', 'Calibri Light', Calibri, sans-serif;
     font-size: 1.2rem;
 
     color: var(--important-2-lighter);
@@ -84,7 +84,7 @@ a:hover {
     color: var(--contrast-2);
 }
 
-input {
+input, button {
     height: 2.5rem;
 
     padding-left: 10px;
@@ -102,8 +102,12 @@ input {
     background-color: var(--important-1-slightly-lighter);
 }
 
-input:hover {
+input:hover, button:hover {
     border: 1px solid var(--contrast-2);
+}
+
+button:hover {
+    color: var(--contrast-2);
 }
 
 input:focus {
@@ -122,9 +126,12 @@ footer {
 
 hr {
     justify-self: center;
-    width: 50vw;
+
+    width: 80vw;
 
     border: 0.5px solid var(--important-2-lighter);
+
+    margin-bottom: 30px;
 }
 
 p, a, code {
@@ -136,8 +143,50 @@ p, a, code {
     padding: 10px;
 }
 
+div {
+    margin-bottom: 10px;
+}
+
 code {
-    font-family: 'Mono Sans';
+    font-family: 'Source Code Pro', monospace;
 
     background-color: var(--important-1-darker);
+}
+
+#add-rabbits {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+label {
+    text-align: center;
+}
+
+button {
+    display: grid;
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.rabbits {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.rabbit, #rabbits-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#rabbits-header {
+    border-bottom: 1px dashed var(--important-2-lighter);
 }
