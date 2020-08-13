@@ -214,6 +214,7 @@ button {
 
 .rabbit>p {
     margin: 0px;
+    text-align: center;
 }
 
 .rabbit, #rabbits-header {

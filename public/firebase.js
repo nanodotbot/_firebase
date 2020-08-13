@@ -36,7 +36,7 @@ const addContent = doc => {
     });
 };
 
-db.collection('rabbits').get().then(snapshot => {
+db.collection('rabbits').where('species', '==', 'rabbit').orderBy('name').get().then(snapshot => {
     snapshot.docs.forEach(doc => {
         addContent(doc);
     })
