@@ -1,6 +1,6 @@
 :root {
     font-family: 'Work Sans', 'Open Sans', 'Nunito', 'Calibri Light', Calibri, sans-serif;
-    font-size: 16px;
+    font-size: 1.5vw;
 
     box-sizing: border-box;
 
@@ -84,11 +84,12 @@ a:hover {
     color: var(--contrast-2);
 }
 
-input, button {
+input,
+button {
     height: 2.5rem;
 
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 
     font-size: 1.2rem;
     text-align: center;
@@ -102,7 +103,8 @@ input, button {
     background-color: var(--important-1-slightly-lighter);
 }
 
-input:hover, button:hover {
+input:hover,
+button:hover {
     border: 1px solid var(--contrast-2);
 }
 
@@ -121,30 +123,32 @@ section {
 }
 
 footer {
-    margin-top: 100px;
+    margin-top: 10vw;
 }
 
 hr {
     justify-self: center;
 
-    width: 80vw;
+    width: 100%;
 
     border: 0.5px solid var(--important-2-lighter);
 
-    margin-bottom: 30px;
+    margin-bottom: 2vw;
 }
 
-p, a, code {
+p,
+a,
+code {
     display: grid;
     justify-content: center;
     align-items: center;
 
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-bottom: 1vw;
+    padding: 1vw;
 }
 
 div {
-    margin-bottom: 10px;
+    margin-bottom: 1vw;
 }
 
 code {
@@ -156,38 +160,44 @@ code {
 #add-rabbits {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 2.8rem;
-    grid-gap: 10px;
+    grid-gap: 1vw;
 
     justify-content: center;
     align-items: center;
 
-    margin-bottom: 10px;
+    margin-bottom: 1vw;
 }
 
-form>p{
+form>p {
     grid-column-start: 2;
     grid-column-end: 3;
 }
+
 label:nth-of-type(1) {
     grid-column-start: 1;
     grid-column-end: 2;
 }
+
 label:nth-of-type(2) {
     grid-column-start: 2;
     grid-column-end: 3;
 }
+
 label:nth-of-type(3) {
     grid-column-start: 3;
     grid-column-end: 4;
 }
+
 form>input:nth-of-type(1) {
     grid-column-start: 1;
     grid-column-end: 2;
 }
+
 form>input:nth-of-type(2) {
     grid-column-start: 2;
     grid-column-end: 3;
 }
+
 form>input:nth-of-type(3) {
     grid-column-start: 3;
     grid-column-end: 4;
@@ -213,28 +223,33 @@ button {
 }
 
 .rabbit>p {
-    margin: 0px;
+    margin: 0;
     text-align: center;
 }
 
-.rabbit, #rabbits-header {
+.rabbit,
+#rabbits-header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 2.9rem;
 
     justify-content: center;
     align-items: center;
 }
+
 #rabbits-header {
     border-bottom: 1px dashed var(--important-2-lighter);
 }
+
 #h-name {
     grid-column-start: 1;
     grid-column-end: 2;
 }
+
 #h-species {
     grid-column-start: 2;
     grid-column-end: 3;
 }
+
 #h-abilities {
     grid-column-start: 3;
     grid-column-end: 4;
@@ -245,7 +260,14 @@ button {
     border: 1px solid var(--important-2-lighter);
     cursor: context-menu;
 }
+
 .cross:hover {
     border: 1px solid var(--contrast-2);
     color: var(--contrast-2);
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        font-size: 2vw;
+    }
 }
