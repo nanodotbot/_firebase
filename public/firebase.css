@@ -41,6 +41,7 @@ body::-webkit-scrollbar-thumb {
 * {
     font-family: 'Work Sans', 'Open Sans', 'Nunito', 'Calibri Light', Calibri, sans-serif;
     font-size: 1.2rem;
+    text-align: center;
 
     color: var(--important-2-lighter);
     background-color: var(--important-1-lighter);
@@ -55,6 +56,7 @@ html,
 body {
     display: grid;
     justify-content: center;
+    align-items: center;
 
     margin: 0;
     padding: 0;
@@ -88,13 +90,10 @@ input,
 button {
     height: 2.5rem;
 
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-
     font-size: 1.2rem;
     text-align: center;
 
-    border: 1px solid var(--important-2-lighter);
+    border: 0.1rem solid var(--important-2-lighter);
 
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -105,7 +104,7 @@ button {
 
 input:hover,
 button:hover {
-    border: 1px solid var(--contrast-2);
+    border: 0.1rem solid var(--contrast-2);
 }
 
 button:hover {
@@ -113,7 +112,7 @@ button:hover {
 }
 
 input:focus {
-    border: 1px solid var(--contrast-2);
+    border: 0.1rem solid var(--contrast-2);
     outline: none;
 }
 
@@ -131,7 +130,7 @@ hr {
 
     width: 100%;
 
-    border: 0.5px solid var(--important-2-lighter);
+    border: 0.05rem solid var(--important-2-lighter);
 
     margin-bottom: 2vw;
 }
@@ -142,6 +141,7 @@ code {
     display: grid;
     justify-content: center;
     align-items: center;
+    max-width: 90vw;
 
     margin-bottom: 1vw;
     padding: 1vw;
@@ -161,6 +161,7 @@ code {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 2.8rem;
     grid-gap: 1vw;
+    max-width: 90vw;
 
     justify-content: center;
     align-items: center;
@@ -220,6 +221,7 @@ button {
     display: grid;
     justify-content: center;
     align-items: center;
+    max-width: 90vw;
 }
 
 .rabbit>p {
@@ -230,14 +232,16 @@ button {
 .rabbit,
 #rabbits-header {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 2.9rem;
+    grid-template-columns: 1fr 1fr 1fr 2.8rem;
+    grid-gap: 1vw;
+    max-width: 90vw;
 
     justify-content: center;
     align-items: center;
 }
 
 #rabbits-header {
-    border-bottom: 1px dashed var(--important-2-lighter);
+    border-bottom: 0.1rem dashed var(--important-2-lighter);
 }
 
 #h-name {
@@ -257,12 +261,12 @@ button {
 
 .cross {
     background-color: var(--important-1-slightly-lighter);
-    border: 1px solid var(--important-2-lighter);
+    border: 0.1rem solid var(--important-2-lighter);
     cursor: context-menu;
 }
 
 .cross:hover {
-    border: 1px solid var(--contrast-2);
+    border: 0.1rem solid var(--contrast-2);
     color: var(--contrast-2);
 }
 
