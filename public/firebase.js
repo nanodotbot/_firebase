@@ -8,6 +8,7 @@ const addContent = doc => {
     const p1 = document.createElement('p');
     const p2 = document.createElement('p');
     const p3 = document.createElement('p');
+    const cross = document.createElement('p');
 
     div1.setAttribute('data-id', doc.id);
     div1.classList.add('rabbit');
@@ -15,10 +16,14 @@ const addContent = doc => {
     p1.innerHTML = doc.data().name;
     p2.innerHTML = doc.data().species;
     p3.innerHTML = doc.data().abilities;
+    cross.innerHTML = 'x';
+
+    cross.classList.add('cross');
 
     div1.appendChild(p1);
     div1.appendChild(p2);
     div1.appendChild(p3);
+    div1.appendChild(cross);
 
     rabbits.appendChild(div1);
 };
@@ -42,4 +47,10 @@ form.addEventListener('submit', e => {
     form.abilities.value = '';
 });
 
-// TODO: firebase firestore #5
+// deleting data
+cross.onclick(e => {
+    e.stopPropagation(); // not necessary
+
+    const id = e.target.parentElement.getAttribute('data-id');
+    db.collection('rabbits').doc(id).delete();
+});
