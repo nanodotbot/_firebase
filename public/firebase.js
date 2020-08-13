@@ -28,7 +28,7 @@ const addContent = doc => {
     rabbits.appendChild(div1);
 
     // deleting data
-    cross.onclick(e => {
+    cross.addEventListener('click', e => {
         e.stopPropagation(); // not necessary
 
         const id = e.target.parentElement.getAttribute('data-id');
