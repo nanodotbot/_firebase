@@ -2,7 +2,7 @@ const db = firebase.firestore();
 const rabbits = document.getElementById('rabbits');
 const form = document.getElementById('add-rabbits');
 
-// getting data
+// getting and deleting data
 const addContent = doc => {
     const div1 = document.createElement('div');
     const p1 = document.createElement('p');
@@ -26,6 +26,14 @@ const addContent = doc => {
     div1.appendChild(cross);
 
     rabbits.appendChild(div1);
+
+    // deleting data
+    cross.onclick(e => {
+        e.stopPropagation(); // not necessary
+
+        const id = e.target.parentElement.getAttribute('data-id');
+        db.collection('rabbits').doc(id).delete();
+    });
 };
 
 db.collection('rabbits').get().then(snapshot => {
@@ -45,12 +53,4 @@ form.addEventListener('submit', e => {
     form.name.value = '';
     form.species.value = '';
     form.abilities.value = '';
-});
-
-// deleting data
-cross.onclick(e => {
-    e.stopPropagation(); // not necessary
-
-    const id = e.target.parentElement.getAttribute('data-id');
-    db.collection('rabbits').doc(id).delete();
 });
