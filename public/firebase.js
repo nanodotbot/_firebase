@@ -50,7 +50,7 @@ db.collection('rabbits').orderBy('name').onSnapshot(snapshot => {
             addContent(change.doc);
         }
         else if (change.type == 'removed'){
-            const changed = rabbits.querySelector('[data-id', change.doc.id);
+            const changed = rabbits.querySelector('data-id', change.doc.id);
             rabbits.removeChild(changed);
         }
     });
