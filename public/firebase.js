@@ -36,11 +36,25 @@ const addContent = doc => {
     });
 };
 
-db.collection('rabbits').where('species', '==', 'rabbit').orderBy('name').get().then(snapshot => {
-    snapshot.docs.forEach(doc => {
-        addContent(doc);
-    })
-});
+// outdated and replaced by the real-time stuff
+// db.collection('rabbits').where('species', '==', 'rabbit').orderBy('name').get().then(snapshot => {
+//     snapshot.docs.forEach(doc => {
+//         addContent(doc);
+//     })
+// });
+
+db.collection('rabbits').orderBy('name').onSnapshot(snapshot => {
+    const changes = snapshot.docChanges();
+    changes.forEach(change => {
+        if (change.type == 'added'){
+            addContent(change.doc);
+        }
+        else if (change.type == 'removed'){
+            const changed = rabbits.querySelector('[data-id=' + change.doc.id + ']');
+            rabbits.removeChild(changed);
+        }
+    });
+})
 
 // posting data
 form.addEventListener('submit', e => {
@@ -54,3 +68,17 @@ form.addEventListener('submit', e => {
     form.species.value = '';
     form.abilities.value = '';
 });
+
+// updating data, properties
+
+// db.collection('rabbits').doc('6d44QTUkZKEmbq8X1V6h').update({
+//     species: 'cat'
+// })
+
+// set overrides the whole document
+
+// db.collection('rabbits').doc('6d44QTUkZKEmbq8X1V6h').set({
+//     name: 'kittens',
+//     species: 'cat',
+//     abilities: 'drinking, eating, sleeping'
+// })
