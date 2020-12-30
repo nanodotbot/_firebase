@@ -5,58 +5,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>firebase summary</title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./firebase.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/general.css">
+    <link rel="stylesheet" href="./css/articles.css">
 </head>
 
 <body>
-    <form id="add-rabbits">
-        <p>add some rabbits here:</p>
-        <label for="name">name</label>
-        <label for="species">species</label>
-        <label for="abilities">abilities</label>
-        <input type="text" name="name" id="name">
-        <input type="text" name="species" id="species">
-        <input type="text" name="abilities" id="abilities">
-        <button>add rabbit</button>
-    </form>
-    <hr>
-    <div id="rabbits">
-        <div id="rabbits-header">
-            <p id="h-name">name</p>
-            <p id="h-species">species</p>
-            <p id="h-abilities">abilities</p>
-        </div>
-    </div>
-    <hr>
-    <code>(·.·)</code>
-    <code>(>_<)</code>
-    <code>(·_·)</code>
-    <hr>
-    <p>create project</p>
-    <p>add firebase sdk snippet to code</p>
-    <p>create cloud firestore</p>
-    <p>change rules</p>
-    <a href="https://nodejs.org/en/">download and install node.js</a>
-    <code>npm install -g firebase-tools</code>
-    <code>firebase login:ci</code>
-    <code>firebase projects:list</code>
-    <code>firebase init</code>
-    <code>firebase deploy</code>
-    <code>firebase emulators:start</code>
+    <header>
+        <h1>firebase summary</h1>
+    </header>
+    <section>
+        <h1>setup</h1>
+        <article>
+            <h2>firebase</h2>
+            <a href="https://console.firebase.google.com/" target="_blank">https://console.firebase.google.com/</a>
+            <p>add new project</p>
+            <p>create cloud firestore: database - cloud firestore - start in test mode</p>
+            <p>change rules:</p>
+            <code>
+                allow read;
+            </code>
+            <code>
+                allow write;
+            </code>
+            <p>cloud firestore - data - start collection</p>
+        </article>
+        <article>
+            <h2>html snippets</h2>
+            <p>add firebase sdk snippet to code: settings - cdn</p>
+            <code>
+                &lt;!-- The core Firebase JS SDK is always required and must be listed first --&gt;
+                &lt;script src="https://www.gstatic.com/ firebasejs/8.2.1/firebase-app.js"&gt;&lt;/script&gt;
+
+                &lt;!-- TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/
+                docs/web/setup#available-libraries --&gt;
+
+                &lt;script&gt;
+                // Your web app's Firebase configuration
+                var firebaseConfig = {
+                apiKey: "AIzaSyBlICJvsWS79g87INj7LUvSkaydUkp1AMQ",
+                authDomain: "fir-1f14d.firebaseapp.com",
+                databaseURL: "https://fir-1f14d.firebaseio.com",
+                projectId: "fir-1f14d",
+                storageBucket: "fir-1f14d.appspot.com",
+                messagingSenderId: "809134647151",
+                appId: "1:809134647151:web:c3df5ef732785ce2732a9a"
+                };
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+                &lt;/script&gt;
+            </code>
+        </article>
+    </section>
+    <section>
+        <h1>firebase firestore</h1>
+        <h2>firestore database</h2>
+        <p>add collection</p>
+        <code>rabbits</code>
+        <p>add document with random (default) id</p>
+        <code>TEvAevkJbV6dWKQkW5FB</code>
+        <p>add fields and values</p>
+        <code>name: algernon</code>
+        <code>abilities: solves riddles, gets the cookies, pleases the miststück</code>
+
+        <h2>js</h2>
+        <p>connect to db</p>
+        <code>const db = firebase.firestore();</code>
+        <p>get collection docs</p>
+        <p>the get() method returns a promise, a snapshot of the db</p>
+        <p>then() loop through the docs to get each doc</p>
+        <code>
+            db.collection('rabbits').get().then( snapshot => {
+            snapshot.docs.forEach(doc => {
+            return doc.data();
+            });
+            });
+        </code>
+
+        <h2>html</h2>
+        <div id="get-docs"></div>
+    </section>
+
+    <section>
+        <article>
+            <h2>i have no clue, when this is getting relevant</h2>
+            <p>download and install node.js</p>
+            <a href="https://nodejs.org/en/" target="_blank">https://nodejs.org/en/</a>
+            <code>npm install -g firebase-tools</code>
+            <code>firebase login:ci</code>
+            <code>firebase projects:list</code>
+            <code>firebase init</code>
+            <code>firebase deploy</code>
+            <code>firebase emulators:start</code>
+        </article>
+    </section>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
-    
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
     <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
-    
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
@@ -66,14 +118,12 @@
             projectId: "fir-1f14d",
             storageBucket: "fir-1f14d.appspot.com",
             messagingSenderId: "809134647151",
-            appId: "1:809134647151:web:c3df5ef732785ce2732a9a",
-            measurementId: "G-CM0X4LS8M9"
+            appId: "1:809134647151:web:c3df5ef732785ce2732a9a"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
     </script>
-    <script src="./firebase.js"></script>
+    <script src="./js/firebase.js" defer></script>
 </body>
 
 </html>
