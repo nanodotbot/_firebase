@@ -7,6 +7,8 @@
     --cyan-d-2: #0097a7;
     --cyan-d-3: #00838f;
 
+    --pink-l-4:#f8bbd0;
+
     --grey-l-5: #fafafa;
     --grey-l-4: #f5f5f5;
     --grey-l-2: #e0e0e0;
@@ -32,6 +34,8 @@
     --positive: var(--green-0);
     --negative: var(--red-0);
     --neutral: var(--blue-0);
+
+    --important-code: var(--pink-l-4);
 }
 
 ::-webkit-scrollbar {
@@ -50,9 +54,11 @@
 
 ::-moz-selection {
     background: var(--background);
+    color: var(--pink-l-4);
 }
 ::selection {
     background: var(--background);
+    color: var(--pink-l-4);
 }
 
 html,
@@ -93,7 +99,8 @@ header > h1 {
     text-align: center;
 }
 
-form > div {
+form {
+    margin-top: 3rem;
     margin-bottom: 2rem;
 }
 
@@ -134,7 +141,7 @@ textarea {
     width: 20rem;
 
     padding: 0 .5rem;
-    margin-top: 1rem;
+    margin-top: 3rem;
 
     /* text-align: center; */
 

@@ -14,11 +14,15 @@
 </head>
 
 <body>
+
     <header>
         <h1>firebase summary</h1>
     </header>
+
     <section>
+
         <h1>setup</h1>
+
         <article>
             <h2>firebase</h2>
             <a href="https://console.firebase.google.com/" target="_blank">https://console.firebase.google.com/</a>
@@ -33,6 +37,7 @@
             </code>
             <p>cloud firestore - data - start collection</p>
         </article>
+
         <article>
             <h2>html snippets</h2>
             <p>add firebase sdk snippet to code: settings - cdn</p>
@@ -58,38 +63,344 @@
                 firebase.initializeApp(firebaseConfig);
                 &lt;/script&gt;
             </code>
+            <p>add firestore snippet</p>
+            <code>&lt;script src="https://www.gstatic.com/ firebasejs/8.2.1/firebase-firestore.js"&gt;</script>
+            </code>
         </article>
-    </section>
-    <section>
-        <h1>firebase firestore</h1>
-        <h2>firestore database</h2>
-        <p>add collection</p>
-        <code>rabbits</code>
-        <p>add document with random (default) id</p>
-        <code>TEvAevkJbV6dWKQkW5FB</code>
-        <p>add fields and values</p>
-        <code>name: algernon</code>
-        <code>abilities: solves riddles, gets the cookies, pleases the miststück</code>
 
-        <h2>js</h2>
-        <p>connect to db</p>
-        <code>const db = firebase.firestore();</code>
-        <p>get collection docs</p>
-        <p>the get() method returns a promise, a snapshot of the db</p>
-        <p>then() loop through the docs to get each doc</p>
-        <code>
-            db.collection('rabbits').get().then( snapshot => {
-            snapshot.docs.forEach(doc => {
-            return doc.data();
-            });
-            });
-        </code>
-
-        <h2>html</h2>
-        <div id="get-docs"></div>
     </section>
 
     <section>
+
+        <h1>firestore - getting data</h1>
+
+        <article>
+            <h2>firestore database</h2>
+            <p>add collection</p>
+            <code>rabbits</code>
+            <p>add document with random (default) id</p>
+            <code>TEvAevkJbV6dWKQkW5FB</code>
+            <p>add fields and values</p>
+            <code>name: algernon</code>
+            <code>abilities: solves riddles, gets the cookies, pleases the miststück</code>
+        </article>
+
+        <article>
+            <h2>js</h2>
+            <p>connect to db</p>
+            <code class="important-code">const db = firebase.firestore();</code>
+            <p>get collection docs</p>
+            <p>the get() method returns a promise, a snapshot of the db</p>
+            <p>then() loop through the docs to get each doc</p>
+            <code class="important-code">
+                db.collection('rabbits').get().then( snapshot => {
+                snapshot.docs.forEach(doc => {
+                renderDocuments(doc);
+                });
+                });
+            </code>
+            <p>access doc data (doc.id, doc.data().xxx</p>
+            <code>
+                p.setAttribute('data-id', <span class="important-code">doc.id</span>);
+                p.textContent = <span class="important-code">doc.data().name</span> + ': ' + <span
+                    class="important-code">doc.data().abilities</span>;
+            </code>
+        </article>
+
+        <article>
+            <h2>root</h2>
+            <div id="get-docs"></div>
+        </article>
+
+    </section>
+
+    <section>
+
+        <h1>firestore - saving data</h1>
+
+        <article>
+            <h2>js</h2>
+            <code class="important-code">db.collection('rabbits').add({
+                name: form.name.value,
+                abilities: form.abilities.value
+            });</code>
+        </article>
+
+        <article>
+            <h2>root</h2>
+            <form id="data">
+                <input type="text" name="name" id="name">
+                <label for="name">name</label>
+                <input type="text" name="abilities" id="abilities">
+                <label for="abilities">abilities</label>
+                <button type="submit" id="save">add to collection</button>
+            </form>
+            <p class="root" id="feedback"></p>
+        </article>
+
+    </section>
+
+    <section>
+
+        <h1>firestore - deleting data</h1>
+
+        <article>
+            <h2>js</h2>
+            <code>const id = e.target.parentElement .getAttribute('data-id');
+        
+                <span class="important-code">db.collection('rabbits') .doc(id).delete();</span></code>
+        </article>
+
+        <article>
+            <h2>root</h2>
+            <div id="delete-docs"></div>
+        </article>
+
+    </section>
+
+    <section>
+
+        <h1>firestore - queries</h1>
+
+        <article>
+            <h2>js</h2>
+            <code class="important-code">db.collection('rabbits').get(). where('name', '==', 'algernon').then()</code>
+            <code class="important-code">db.collection('rabbits').get(). where('name', '>', 'a').then()</code>
+        </article>
+
+        <article>
+            <h2>root</h2>
+            <div id="queries"></div>
+        </article>
+
+    </section>
+
+    <section>
+
+        <h1>firestore - ordering data</h1>
+
+        <article>
+            <h2>firebase</h2>
+            <p>set index in firestore if necessary:</p>
+            <p>cloud firestore - indexes</p>
+        </article>
+
+        <article>
+            <h2>js</h2>
+            <code class="important-code">db.collection('rabbits') .orderBy('name').get().then()</code>
+            <code class="important-code">db.collection('rabbits') .where('name', '==', 'algernon') .orderBy('name').get().then()</code>
+        </article>
+
+        <article>
+            <h2>root</h2>
+            <div id="order"></div>
+        </article>
+
+    </section>
+
+    <section>
+
+        <h1>firestore - real-time data</h1>
+
+        <article>
+            <h2>onSnapshot() - docChanges()</h2>
+            <p>'added'</p>
+            <p>'deleted'</p>
+            <p>'modified'</p>
+        </article>
+
+        <article>
+            <h2>js</h2>
+            <code class="important-code">db.collection('rabbits') .orderBy('name').onSnapshot( snapshot => {
+                const changes = snapshot.docChanges();
+                
+                changes.forEach( change => {
+                    if (change.type == 'added'){
+                        renderRealtimeDocs(change.doc);
+                    } else if (change.type == 'removed') {
+                        const pid = realtimeDocsDiv .querySelector('[data-id=' + change.doc.id +']');
+                        realtimeDocsDiv.removeChild(pid);
+                    }
+                })
+            });</code>
+        </article>
+
+        <article>
+            <h2>root</h2>
+            <div id="real-time"></div>
+        </article>
+
+    </section>
+
+    <section>
+
+        <h1>firestore - updating data</h1>
+
+        <article>
+            <h2>update()</h2>
+            <p>updates data, does not overwrite every data set</p>
+            <h2>set()</h2>
+            <p>sets all data new</p>
+        </article>
+
+        <article>
+            <h2>js</h2>
+            <code class="important-code">db.collection('rabbits') .doc(id).update({
+                abilities: chform.abilities.value
+            });</code>
+            <code class="important-code">db.collection('rabbits') .doc(id).set({
+                abilities: chform.abilities.value
+            });</code>
+        </article>
+
+        <article>
+            <h2>root</h2>
+            <form id="ch-data">
+                <input type="text" name="name" id="ch-name">
+                <label for="ch-name">name</label>
+                <input type="text" name="abilities" id="ch-abilities">
+                <label for="ch-abilities">abilities</label>
+                <button type="submit" id="changebtn">change abilities</button>
+            </form>
+            <p class="root" id="ch-feedback"></p>
+        </article>
+
+    </section>
+
+    <section>
+        <h1>firestore - documentation</h1>
+        <a href="https://firebase.google.com/docs/firestore">https://firebase.google.com/docs/firestore</a>
+    </section>
+
+    <hr>
+
+    <section>
+
+        <h1>authentification - setup</h1>
+        
+        <article>
+            <h2>firebase</h2>
+            <p>setup a sign-in method</p>
+        </article>
+        
+        <article>
+            <h2>html</h2>
+            <p>add firebase auth snippet</p>
+            <code>
+                &lt;script src="https://www.gstatic.com/ firebasejs/8.2.1/firebase-auth.js"&gt;&lt;/script&gt;
+            </code>
+        </article>
+    
+        <article>
+            <h2>js</h2>
+            <p>add auth reference</p>
+            <code>const auth = firebase.auth();</code>
+        </article>
+
+    </section>
+
+    <section>
+
+        <h1>authentification - creating new users</h1>
+
+        <article>
+            <h2>js</h2>
+            <code class="important-code">auth. createUserWithEmailAndPassword( username, password ) .then( cred => {
+                sfeedback.innerHTML = cred.user['email'] + ' created';
+                signup.reset();
+            });;</code>
+        </article>
+
+        <article>
+            <h2>root</h2>
+            <form id="signup">
+                <input type="text" name="user" id="s-username">
+                <label for="s-username">username</label>
+                <input type="password" name="abilities" id="s-password">
+                <label for="s-password">password</label>
+                <button type="submit" id="signupbtn">signup</button>
+            </form>
+            <p class="root" id="s-feedback"></p>
+        </article>
+
+    </section>
+
+    <section>
+
+        <h1>authentification - logout</h1>
+
+        <article>
+            <h2>js</h2>
+            <code class="important-code">auth.signOut().then( () => {
+                loutfeedback.innerHTML = 'logged out successfully';
+            });</code>
+        </article>
+
+        <article>
+            <h2>root</h2>
+            <button type="button" id="logout">logout</button>
+            <p class="root" id="l-out-feedback"></p>
+        </article>
+
+    </section>
+
+    <section>
+
+        <h1>authentification - login</h1>
+
+        <article>
+            <h2>js</h2>
+            <code class="important-code">login.onclick = e => {
+                e.preventDefault();
+            
+                auth.signIn().then( () => {
+                    linfeedback.innerHTML = 'logged in successfully';
+                })
+            };</code>
+        </article>
+
+        <article>
+            <h2>root</h2>
+            <form id="login">
+                <input type="text" name="user" id="l-in-username">
+                <label for="l-in-username">username</label>
+                <input type="password" name="abilities" id="l-in-password">
+                <label for="l-in-password">password</label>
+                <button type="submit" id="loginbtn">login</button>
+            </form>
+            <p class="root" id="l-in-feedback"></p>
+        </article>
+
+    </section>
+
+    <section>
+
+        <h1>authentification - </h1>
+
+        <article>
+            <h2>js</h2>
+            <code class="important-code"></code>
+        </article>
+
+        <article>
+            <h2>root</h2>
+            <form id="login">
+                <input type="text" name="user" id="l-in-username">
+                <label for="l-in-username">username</label>
+                <input type="password" name="abilities" id="l-in-password">
+                <label for="l-in-password">password</label>
+                <button type="submit" id="loginbtn">login</button>
+            </form>
+            <p class="root" id="l-in-feedback"></p>
+        </article>
+
+    </section>
+    
+
+    <hr>
+
+    <section>
+
         <article>
             <h2>i have no clue, when this is getting relevant</h2>
             <p>download and install node.js</p>
@@ -101,10 +412,17 @@
             <code>firebase deploy</code>
             <code>firebase emulators:start</code>
         </article>
+
     </section>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
+    <!-- firestore snippet -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+
+    <!-- auth snippet -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
     https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -123,7 +441,8 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
     </script>
-    <script src="./js/firebase.js" defer></script>
+    <script src="./js/firestore.js" defer></script>
+    <script src="./js/auth.js" defer></script>
 </body>
 
 </html>

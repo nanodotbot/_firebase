@@ -4,7 +4,8 @@ article {
     max-width: 80vw;
 }
 
-section {
+section,
+hr {
     margin: 0 auto 5rem auto;
 }
 
@@ -25,22 +26,35 @@ a {
     display: block;
 }
 
-code {
-    display: block;
-}
-
 code,
-pre {
-    color: var(--title-contrast);
-    background-color: var(--text);
-
+.root,
+.important-code {
+    font-family: 'Source Code Pro', monospace;
+    
     padding: 1rem 2rem;
 }
 
-code,
-pre {
-    font-family: 'Source Code Pro', monospace;
+code {
+    display: block;
+    color: var(--title-contrast);
+    background-color: var(--text);
 }
+
+.root {
+    background-color: var(--background);
+}
+
+.important-code {
+    color: var(--important-code);
+}
+
+/* delete docs - cross */
+
+.cross {
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
 
 @media screen and (max-width: 500px) {
     #file-input-label {
